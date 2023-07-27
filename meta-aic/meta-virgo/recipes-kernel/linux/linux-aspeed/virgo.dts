@@ -1,0 +1,419 @@
+// SPDX-License-Identifier: GPL-2.0+
+/dts-v1/;
+
+#include "aspeed-g5.dtsi"
+#include <dt-bindings/gpio/aspeed-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	model = "AIC Virgo";
+	compatible = "aic,virgo", "aspeed,ast2500";
+
+	chosen {
+		stdout-path = &uart5;
+		bootargs = "console=ttyS4,115200 earlycon";
+	};
+
+	memory@80000000 {
+        device_type = "memory";
+        reg = <0x80000000 0x20000000>;
+    };
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		p2a_memory: region@987f0000 {
+			no-map;
+			reg = <0x987f0000 0x00010000>; /* 64KB */
+		};
+
+		vga_memory: framebuffer@9f000000 {
+			no-map;
+			reg = <0x9f000000 0x01000000>; /* 16M */
+		};
+
+		gfx_memory: framebuffer {
+			size = <0x01000000>; /* 16M */
+			alignment = <0x01000000>;
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+        video_engine_memory: jpegbuffer {
+            	size = <0x02000000>;	/* 32M */
+            	alignment = <0x01000000>;
+            	compatible = "shared-dma-pool";
+            	reusable;
+        };
+
+        flash_memory: region@98000000 {
+            			no-map;
+            			reg = <0x98000000 0x04000000>; /* 64M */
+        };
+	};
+
+    /* OK ADC 16 */
+	iio-hwmon {
+		compatible = "iio-hwmon";
+		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>,
+			<&adc 4>, <&adc 5>, <&adc 6>, <&adc 7>,
+			<&adc 8>, <&adc 9>, <&adc 10>, <&adc 11>,
+			<&adc 12>, <&adc 13>, <&adc 14>, <&adc 15>;
+	};
+
+};
+
+&fmc {
+	status = "okay";
+	flash@0 {
+		label = "bmc";
+		status = "okay";
+		m25p,fast-read;
+#include "openbmc-flash-layout.dtsi"
+	};
+};
+
+&spi1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_spi1_default>;
+
+	flash@0 {
+		status = "okay";
+		m25p,fast-read;
+	};
+};
+
+&video {
+	status = "okay";
+	memory-region = <&video_engine_memory>;
+};
+
+&p2a {
+	status = "okay";
+	memory-region = <&p2a_memory>;
+};
+
+&uart1 {
+	status = "okay";
+};
+
+&uart2 {
+	status = "okay";
+};
+
+&uart4 {
+	status = "okay";
+};
+
+&uart5 {
+	status = "okay";
+};
+
+&uart_routing {
+	status = "okay";
+};
+
+&vuart {
+	status = "okay";
+};
+
+&lpc_ctrl {
+	status = "okay";
+	memory-region = <&flash_memory>;
+	flash = <&spi1>;
+};
+
+&lpc_snoop {
+	status = "okay";
+	snoop-ports = <0x80>;
+};
+
+&vhub {
+	status = "okay";
+};
+
+&pwm_tacho {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_pwm0_default &pinctrl_pwm1_default
+			 &pinctrl_pwm2_default &pinctrl_pwm3_default
+			 &pinctrl_pwm4_default &pinctrl_pwm5_default>;
+};
+
+&i2c0 {
+	/* IPMB and Switch */
+	status = "okay";
+};
+
+&i2c1 {
+	/* MB_3V3SB_CLK SMB_3V3SB_DAT via SW */
+	status = "okay";
+
+	/*
+	*0x00
+    *0x0a
+    *0x10
+    *0x88
+    *0x90
+    *0xe4
+    */
+};
+
+&i2c2 {
+	status = "okay";
+
+	/* THERMAL SENSORS LM95241CIMM */
+	sensor@32 {
+		compatible = "nat,lm95241";
+		reg = <0x32>;
+	};
+
+	sensor@54 {
+    		compatible = "nat,lm95241";
+    		reg = <0x54>;
+    };
+
+	sensor@56 {
+    		compatible = "nat,lm95241";
+    		reg = <0x56>;
+    };
+};
+
+&i2c3 {
+    status = "okay";
+
+	/* AT24C128BN-SH-T EEPROM
+	* Changed A0 to 50 (8 bit to 7 bit)
+	*/
+	eeprom@50 {
+		compatible = "atmel,24c128";
+		reg = <0x50>;
+		pagesize = <64>;
+	};
+};
+
+&i2c4 {
+	status = "okay";
+
+	/* Connected to:
+	 * - SFF-8643 via 2 MUX -  0XE2, 0XE0
+	 */
+
+};
+
+&i2c5 {
+	status = "okay";
+
+	/* Connected via LS to:
+	 * - SMBCLK and SMBDAT
+	   - PIN header 1x5
+	   - SMB_SMLINK1_CLK and SMB_SMLINK1_DATA
+	 */
+};
+
+&i2c6 {
+	status = "okay";
+
+	/*
+	* SMB_SMLINK0_CLK and SMB_SMLINK0_DATA
+	* 0x00
+    * 0x2c
+    * 0xe0
+	*/
+
+};
+
+&i2c7 {
+	status = "okay";
+
+	/*
+	 * Front Panel 2x25
+	 */
+};
+
+&i2c8 {
+	status = "okay";
+
+	/*
+	* Box Header 2x3
+	*/
+};
+
+&i2c9 {
+	status = "okay";
+
+	/*
+	* Pin Header 1x3
+	*/
+};
+
+&i2c10 {
+	status = "okay";
+};
+
+&i2c11 {
+	status = "okay";
+};
+
+&i2c12 {
+	status = "okay";
+};
+
+&i2c13 {
+	status = "okay";
+
+	/*
+	* Fan Present/Fault 1x6
+	*/
+
+
+
+};
+
+&mac0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_rmii1_default &pinctrl_mdio1_default>;
+};
+
+&mac1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
+};
+
+&kcs1 {
+	status = "okay";
+};
+
+&kcs3 {
+	status = "okay";
+};
+
+&pinctrl {
+	aspeed,external-nodes = <&gfx &lhc>;
+};
+
+/* Enable BMC VGA output to show an early (pre-BIOS) boot screen */
+&gfx {
+	status = "okay";
+	memory-region = <&gfx_memory>;
+};
+
+/* We're following the GPIO naming as defined at
+ * https://github.com/openbmc/docs/blob/master/designs/device-tree-gpio-naming.md.
+ *
+ * Notes on led-identify and id-button:
+ * - A physical button is connected to id-button which
+ *   triggers the clock on a D flip-flop. The /Q output of the
+ *   flip-flop drives its D input.
+ * - The flip-flop's Q output drives led-identify which is
+ *   connected to LEDs.
+ * - With that, every button press toggles the LED between on and off.
+ *
+ * Notes on power-, reset- and nmi- button and control:
+ * - The -button signals can be used to monitor physical buttons.
+ * - The -control signals can be used to actuate the specific
+ *   operation.
+ * - In hardware, the -button signals are connected to the -control
+ *   signals through drivers with the -control signals being
+ *   protected through diodes.
+ */
+&gpio {
+	status = "okay";
+	gpio-line-names =
+	/*A0*/		"",
+	/*A1*/		"",
+	/*A2*/		""
+	/*A3*/		"",
+	/*A4*/		"",
+	/*A5*/		"",
+	/*A6*/		"",
+	/*A7*/		"",
+	/*B0-B7*/	"","","","","","","","",
+	/*C0*/		"",
+	/*C1*/		"",
+	/*C2*/		"",
+	/*C3*/		"",
+	/*C4*/		"id-button", /* in/out: BMC_IDBTN_IN_OUT_N */
+	/*C5*/		"post-complete", /* in: FM_BIOS_POST_CMPLT_N */
+	/*C6*/		"",
+	/*C7*/		"",
+	/*D0*/		"",
+	/*D1*/		"",
+	/*D2*/		"power-chassis-good", /* in: SYS_PWROK_BUF */
+	/*D3*/		"platform-reset", /* in: SYS_PLTRST_N */
+	/*D4*/		"",
+	/*D5*/		"",
+	/*D6*/		"",
+	/*D7*/		"",
+	/*E0*/		"power-button", /* in: BMC_PWBTN_IN_N */
+	/*E1*/		"power-chassis-control", /* out: BMC_PWRBTN_OUT_N */
+	/*E2*/		"reset-button", /* in: BMC_RSTBTN_IN_N */
+	/*E3*/		"reset-control", /* out: BMC_RSTBTN_OUT_N */
+	/*E4*/		"nmi-button", /* in: BMC_NMIBTN_IN_N */
+	/*E5*/		"nmi-control", /* out: BMC_NMIBTN_OUT_N */
+	/*E6*/		"",
+	/*E7*/		"led-heartbeat", /* out: BMC_HEARTBRAT_LED_N */
+	/*F0*/		"",
+	/*F1*/		"clear-cmos-control", /* out: BMC_CLR_CMOS_N */
+	/*F2*/		"",
+	/*F3*/		"",
+	/*F4*/		"led-fault", /* out: AST_HW_FAULT_N */
+	/*F5*/		"",
+	/*F6*/		"",
+	/*F7*/		"",
+	/*G0*/		"BMC_PE_SMB_EN_1_N", /* out */
+	/*G1*/		"BMC_PE_SMB_EN_2_N", /* out */
+	/*G2*/		"",
+	/*G3*/		"",
+	/*G4*/		"",
+	/*G5*/		"",
+	/*G6*/		"",
+	/*G7*/		"",
+	/*H0-H7*/	"",
+	            "",
+	            "",
+	            "",
+	            "",
+	            "",
+	/*H6*/      "led-identify", /* in/out: BMC_IDLED_ON_N */
+	            "",
+	/*I0-I7*/	"","","","","","","","",
+	/*J0-J7*/	"","","","","","","","",
+	/*K0-K7*/	"","","","","","","","",
+	/*L0-L7*/	"","","","","","","","",
+	/*M0-M7*/	"","","","","","","","",
+	/*N0-N7*/	"","","","","","","","",
+	/*O0-O7*/	"","","","","","","","",
+	/*P0-P7*/	"","","","","","","","",
+	/*Q0*/		"",
+	/*Q1*/		"",
+	/*Q2*/		"",
+	/*Q3*/		"",
+	/*Q4*/		"BMC_PE_SMB_SW_BIT0", /* out */
+	/*Q5*/		"BMC_PE_SMB_SW_BIT1", /* out */
+	/*Q6*/		"",
+	/*Q7*/		"",
+	/*R0-R7*/	"","","","","","","","",
+	/*S0-S7*/	"","","","","","","","",
+	/*T0-T7*/	"","","","","","","","",
+	/*U0-U7*/	"","","","","","","","",
+	/*V0-V7*/	"","","","","","","","",
+	/*W0-W7*/	"","","","","","","","",
+	/*X0-X7*/	"","","","","","","","",
+	/*Y0-Y7*/	"","","","","","","","",
+	/*Z0-Z7*/	"","","","","","","","",
+	/*AA0*/		"",
+	/*AA1*/		"",
+	/*AA2*/		"",
+	/*AA3*/		"BMC_SMB3_PCH_IE_SML3_EN", /* out */
+	/*AA4*/		"",
+	/*AA5*/		"",
+	/*AA6*/		"",
+	/*AA7*/		"",
+	/*AB0-AB7*/	"","","","","","","","";
+};
