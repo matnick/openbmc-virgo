@@ -163,6 +163,19 @@
 };
 
 &i2c2 {
+    status = "okay";
+
+	/* AT24C128BN-SH-T EEPROM
+	* Changed A0 to 50 (8 bit to 7 bit)
+	*/
+	eeprom@50 {
+		compatible = "atmel,24c128";
+		reg = <0x50>;
+		pagesize = <64>;
+	};
+};
+
+&i2c3 {
 	status = "okay";
 
 	/* THERMAL SENSORS LM95241CIMM */
@@ -180,19 +193,6 @@
     		compatible = "nat,lm95241";
     		reg = <0x56>;
     };
-};
-
-&i2c3 {
-    status = "okay";
-
-	/* AT24C128BN-SH-T EEPROM
-	* Changed A0 to 50 (8 bit to 7 bit)
-	*/
-	eeprom@50 {
-		compatible = "atmel,24c128";
-		reg = <0x50>;
-		pagesize = <64>;
-	};
 };
 
 &i2c4 {
@@ -266,10 +266,10 @@
 	status = "okay";
 
 	/*
-	* Fan Present/Fault 1x6
+	* Fan Present/Fault 1x6 (FAN_SENSOR)
+	0x40
+    0x42
 	*/
-
-
 
 };
 
@@ -338,36 +338,36 @@
 	/*C1*/		"",
 	/*C2*/		"",
 	/*C3*/		"",
-	/*C4*/		"id-button", /* in/out: BMC_IDBTN_IN_OUT_N */
-	/*C5*/		"post-complete", /* in: FM_BIOS_POST_CMPLT_N */
+	/*C4*/		""
+	/*C5*/		"",
 	/*C6*/		"",
 	/*C7*/		"",
-	/*D0*/		"",
-	/*D1*/		"",
-	/*D2*/		"power-chassis-good", /* in: SYS_PWROK_BUF */
-	/*D3*/		"platform-reset", /* in: SYS_PLTRST_N */
-	/*D4*/		"",
-	/*D5*/		"",
+	/*D0*/		"power-button", /* in: SW_PWR_BTN */
+	/*D1*/		"power-chassis-control", /* out: PWR_SW_OUT */
+	/*D2*/		"reset-button",  /* in: SW_RST_BTN #  */
+	/*D3*/		"reset-control", /* out: PCH_SYSRST */
+	/*D4*/      "nmi-button", /* in: FP_NMI_BTN */
+	/*D5*/      "nmi-out", /* out: FP_NMI_BTN_OUT */
 	/*D6*/		"",
-	/*D7*/		"",
-	/*E0*/		"power-button", /* in: BMC_PWBTN_IN_N */
-	/*E1*/		"power-chassis-control", /* out: BMC_PWRBTN_OUT_N */
-	/*E2*/		"reset-button", /* in: BMC_RSTBTN_IN_N */
-	/*E3*/		"reset-control", /* out: BMC_RSTBTN_OUT_N */
-	/*E4*/		"nmi-button", /* in: BMC_NMIBTN_IN_N */
-	/*E5*/		"nmi-control", /* out: BMC_NMIBTN_OUT_N */
+	/*D7*/		"power-chassis-good",/* SYS ALL GD */
+	/*E0*/		"BMC_PE_SMB_SW_BIT1", /* smb sw 1 */
+	/*E1*/		"BMC_PE_SMB_SW_BIT0",/* smb sw 0 */
+	/*E2*/		"",
+	/*E3*/		"",
+	/*E4*/		""
+	/*E5*/		""
 	/*E6*/		"",
-	/*E7*/		"led-heartbeat", /* out: BMC_HEARTBRAT_LED_N */
+	/*E7*/		"",
 	/*F0*/		"",
-	/*F1*/		"clear-cmos-control", /* out: BMC_CLR_CMOS_N */
+	/*F1*/		""
 	/*F2*/		"",
 	/*F3*/		"",
 	/*F4*/		"led-fault", /* out: AST_HW_FAULT_N */
 	/*F5*/		"",
 	/*F6*/		"",
 	/*F7*/		"",
-	/*G0*/		"BMC_PE_SMB_EN_1_N", /* out */
-	/*G1*/		"BMC_PE_SMB_EN_2_N", /* out */
+	/*G0*/		"", /* out */
+	/*G1*/		"", /* out */
 	/*G2*/		"",
 	/*G3*/		"",
 	/*G4*/		"",
@@ -379,23 +379,35 @@
 	            "",
 	            "",
 	            "",
+	/*H5*/      "clear-cmos-control", /* out: CLEAR_CMOS */
+	/*H6*/      "uiddled_out", /* out: UIDLED_OUT */
 	            "",
-	/*H6*/      "led-identify", /* in/out: BMC_IDLED_ON_N */
+	/*I0*/	    "post-complete", /* out: FM_BIOS_POST_CMPLT_N */
+	/*I1*/      "intruder_chassis", /* out: SIO_CHASSIS */,
+	/*I2*/      "led-heartbeat", /* out: "HEART BIT" */,
 	            "",
-	/*I0-I7*/	"","","","","","","","",
+	            "",
+	            "","","",
 	/*J0-J7*/	"","","","","","","","",
 	/*K0-K7*/	"","","","","","","","",
 	/*L0-L7*/	"","","","","","","","",
 	/*M0-M7*/	"","","","","","","","",
 	/*N0-N7*/	"","","","","","","","",
 	/*O0-O7*/	"","","","","","","","",
-	/*P0-P7*/	"","","","","","","","",
+	/*P0-P7*/	"",
+	            "",
+	            "",
+	            "",
+	            "",
+	/*P5*/      "", /* PCH_NMI_N */
+	/*P6*/      "bmc-nmi-out", /* in: BMC_NMI_OUT */
+	/*P7*/      "bmc-nmi-button", /* in: BMC_NMI_IN */
 	/*Q0*/		"",
 	/*Q1*/		"",
 	/*Q2*/		"",
 	/*Q3*/		"",
-	/*Q4*/		"BMC_PE_SMB_SW_BIT0", /* out */
-	/*Q5*/		"BMC_PE_SMB_SW_BIT1", /* out */
+	/*Q4*/		"BMC_PE_SMB_EN_1_N", /* not avail */
+	/*Q5*/		"BMC_PE_SMB_EN_2_N", /* not avail */
 	/*Q6*/		"",
 	/*Q7*/		"",
 	/*R0-R7*/	"","","","","","","","",
@@ -410,7 +422,7 @@
 	/*AA0*/		"",
 	/*AA1*/		"",
 	/*AA2*/		"",
-	/*AA3*/		"BMC_SMB3_PCH_IE_SML3_EN", /* out */
+	/*AA3*/		"BMC_SMB3_PCH_IE_SML3_EN", /* not avail */
 	/*AA4*/		"",
 	/*AA5*/		"",
 	/*AA6*/		"",
