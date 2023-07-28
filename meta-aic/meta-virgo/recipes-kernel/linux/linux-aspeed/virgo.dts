@@ -433,7 +433,7 @@
 	            "",
 	            "",
 	            "",
-	            "id_button", /* in: UID_SW_IN_N */
+	            "id-button", /* in: UID_SW_IN_N */
 	/*H5*/      "clear-cmos-control", /* out: CLEAR_CMOS */
 	/*H6*/      "uiddled_out", /* out: UIDLED_OUT */
 	            "",
