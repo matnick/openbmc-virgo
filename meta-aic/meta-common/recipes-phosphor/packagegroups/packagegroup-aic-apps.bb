@@ -26,6 +26,11 @@ RDEPENDS:${PN}-chassis = " \
         x86-power-control \
         "
 
+SUMMARY:${PN}-fan = "AIC Fans"
+RDEPENDS:${PN}-fan = " \
+        phosphor-pid-control \
+        "
+
 SUMMARY:${PN}-flash = "AIC Flash"
 RDEPENDS:${PN}-flash = " \
         phosphor-software-manager \
