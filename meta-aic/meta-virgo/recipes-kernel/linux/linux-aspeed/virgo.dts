@@ -52,6 +52,15 @@
             			no-map;
             			reg = <0x98000000 0x04000000>; /* 64M */
         };
+
+        b_3v3: regulator-sb3v3 {
+        		compatible = "regulator-fixed";
+        		regulator-name = "MC34717-3.3VSB";
+        		regulator-min-microvolt = <3300000>;
+        		regulator-max-microvolt = <3300000>;
+        		regulator-boot-on;
+        		regulator-always-on;
+        	};
 	};
 
     /* OK ADC 16 */
@@ -60,8 +69,13 @@
 		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>,
 			<&adc 4>, <&adc 5>, <&adc 6>, <&adc 7>,
 			<&adc 8>, <&adc 9>, <&adc 10>, <&adc 11>,
-			<&adc 12>, <&adc 13>, <&adc 14>, <&adc 15>;
+			<&adc 12>, <&adc 13>, <&adc 14>;
 	};
+
+	iio-hwmon-battery {
+    		compatible = "iio-hwmon";
+    		io-channels = <&adc 15>;
+    };
 
 };
 
@@ -321,7 +335,7 @@
 &mac0 {
 	status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rmii1_default &pinctrl_mdio1_default>;
+	pinctrl-0 = <&pinctrl_rmii1_default>;
 };
 
 &mac1 {
