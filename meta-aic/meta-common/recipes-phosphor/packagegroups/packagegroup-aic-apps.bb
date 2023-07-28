@@ -21,10 +21,15 @@ PROVIDES += "virtual-obmc-flash-mgmt"
 PROVIDES += "virtual-obmc-system-mgmt"
 PROVIDES += "virtual-obmc-fan-mgmt"
 
+PROVIDES += "virtual/obmc-chassis-mgmt"
+PROVIDES += "virtual/obmc-flash-mgmt"
+PROVIDES += "virtual/obmc-system-mgmt"
+PROVIDES += "virtual/obmc-fan-mgmt"
+
 RPROVIDES:${PN}-chassis += "obmc-chassis-mgmt"
 RPROVIDES:${PN}-flash += "obmc-flash-mgmt"
 RPROVIDES:${PN}-system += "obmc-system-mgmt"
-RPROVIDES:${PN}-system += "obmc-fan-mgmt"
+RPROVIDES:${PN}-fan += "obmc-fan-mgmt"
 
 SUMMARY:${PN}-chassis = "AIC Chassis"
 RDEPENDS:${PN}-chassis = " \
