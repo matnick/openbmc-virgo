@@ -383,8 +383,8 @@
 	/*H6*/      "uiddled_out", /* out: UIDLED_OUT */
 	            "",
 	/*I0*/	    "post-complete", /* out: FM_BIOS_POST_CMPLT_N */
-	/*I1*/      "intruder_chassis", /* out: SIO_CHASSIS */,
-	/*I2*/      "led-heartbeat", /* out: "HEART BIT" */,
+	/*I1*/      "intruder_chassis", /* out: SIO_CHASSIS */
+	/*I2*/      "led-heartbeat", /* out: "HEART BIT" */
 	            "",
 	            "",
 	            "","","",
