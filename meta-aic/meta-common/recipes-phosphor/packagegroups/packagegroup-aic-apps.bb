@@ -10,15 +10,15 @@ PACKAGES = " \
         ${PN}-system \
         "
 
-PROVIDES += "virtual/obmc-chassis-mgmt"
-PROVIDES += "virtual/obmc-flash-mgmt"
-PROVIDES += "virtual/obmc-system-mgmt"
-PROVIDES += "virtual/obmc-fan-mgmt"
+PROVIDES += "obmc-chassis-mgmt"
+PROVIDES += "obmc-flash-mgmt"
+PROVIDES += "obmc-system-mgmt"
+PROVIDES += "obmc-fan-mgmt"
 
-RPROVIDES:${PN}-chassis += "virtual-obmc-chassis-mgmt"
-RPROVIDES:${PN}-flash += "virtual-obmc-flash-mgmt"
-RPROVIDES:${PN}-system += "virtual-obmc-system-mgmt"
-RPROVIDES:${PN}-system += "virtual-obmc-fan-mgmt""
+RPROVIDES:${PN}-chassis += "obmc-chassis-mgmt"
+RPROVIDES:${PN}-flash += "obmc-flash-mgmt"
+RPROVIDES:${PN}-system += "obmc-system-mgmt"
+RPROVIDES:${PN}-system += "obmc-fan-mgmt""
 
 SUMMARY:${PN}-chassis = "AIC Chassis"
 RDEPENDS:${PN}-chassis = " \
