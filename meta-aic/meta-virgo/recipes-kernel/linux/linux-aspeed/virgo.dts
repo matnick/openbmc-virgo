@@ -293,10 +293,6 @@
 	status = "okay";
 };
 
-&pinctrl {
-	aspeed,external-nodes = <&gfx &lhc>;
-};
-
 /* Enable BMC VGA output to show an early (pre-BIOS) boot screen */
 &gfx {
 	status = "okay";
