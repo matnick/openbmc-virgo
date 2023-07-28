@@ -8,6 +8,7 @@ PACKAGES = " \
         ${PN}-chassis \
         ${PN}-flash \
         ${PN}-system \
+        ${PN}-fan \
         "
 
 PROVIDES += "obmc-chassis-mgmt"
@@ -18,7 +19,7 @@ PROVIDES += "obmc-fan-mgmt"
 RPROVIDES:${PN}-chassis += "obmc-chassis-mgmt"
 RPROVIDES:${PN}-flash += "obmc-flash-mgmt"
 RPROVIDES:${PN}-system += "obmc-system-mgmt"
-RPROVIDES:${PN}-system += "obmc-fan-mgmt""
+RPROVIDES:${PN}-system += "obmc-fan-mgmt"
 
 SUMMARY:${PN}-chassis = "AIC Chassis"
 RDEPENDS:${PN}-chassis = " \
