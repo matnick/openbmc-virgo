@@ -19,12 +19,6 @@
         "Polarity" : "ActiveLow"
     },
     {
-        "Name" : "PostComplete",
-        "LineName" : "post-complete",
-        "Type" : "GPIO",
-        "Polarity" : "ActiveLow"
-    },
-    {
         "Name" : "PowerButton",
         "LineName" : "power-button",
         "Type" : "GPIO",
