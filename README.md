@@ -58,10 +58,10 @@ bletchley       mori                s8036
 dl360poc        mtjade              swift
 e3c246d4i       mtmitchel           tatlin-archive-x86
 ethanolx        nicole              tiogapass
-evb-ast2500	    olympus-nuvoton	    transformers
+evb-ast2500     olympus-nuvoton	    transformers
 evb-ast2600     on5263m5            vegman-n110
-evb-npcm750	    p10bmc              vegman-rx20
-f0b	            palmetto            vegman-sx20
+evb-npcm750     p10bmc              vegman-rx20
+f0b             palmetto            vegman-sx20
 fp5280g2        qcom-dc-scm-v1	    virgo
 g220a           quanta-q71l         witherspoon
 gbs             romed8hm3           witherspoon-tacoma
