@@ -20,7 +20,7 @@
     },
     {
         "Name" : "PostComplete",
-        "LineName" : "power-ok",
+        "LineName" : "post-complete",
         "Type" : "GPIO",
         "Polarity" : "ActiveHigh"
     },

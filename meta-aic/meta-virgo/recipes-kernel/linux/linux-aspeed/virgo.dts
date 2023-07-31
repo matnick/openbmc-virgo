@@ -410,7 +410,7 @@
 	/*27 D3*/	"reset-control", /* out: PCH_SYSRST */
 	/*28 D4*/   "nmi-button", /* in: FP_NMI_BTN */
 	/*29 D5*/   "nmi-out", /* out: FP_NMI_BTN_OUT */
-	/*30 D6*/	"power-ok", /* out: SYSTEM_PWRGD */
+	/*30 D6*/	"post-complete", /* out: SYSTEM_PWRGD */
 	/*31 D7*/   "power-chassis-good",/* SYS ALL GD */
 	/*32 E0*/	"BMC_PE_SMB_SW_BIT1", /* smb sw 1 */
 	/*33 E1*/	"BMC_PE_SMB_SW_BIT0",/* smb sw 0 */
@@ -444,7 +444,7 @@
 	/*61 H5*/   "clear-cmos-control", /* out: CLEAR_CMOS */
 	/*62 H6*/   "uiddled_out", /* out: UIDLED_OUT */
 	/*63 H7*/   "flash-override", /*in: FLASH_OVERRIDE */
-	/*64 I0*/	"post-complete",  /*  out: FM_BIOS_POST_CMPLT_N */
+	/*64 I0*/	"post-complete-old",  /*  out: FM_BIOS_POST_CMPLT_N */
 	/*I1*/      "intruder_chassis", /* out: SIO_CHASSIS */
 	/*I2*/      "led-heartbeat", /* out: "HEART BIT" */
 	            "",
