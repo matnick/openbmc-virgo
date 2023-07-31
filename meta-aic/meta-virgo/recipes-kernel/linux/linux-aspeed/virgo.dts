@@ -24,11 +24,6 @@
 		#size-cells = <1>;
 		ranges;
 
-		p2a_memory: region@987f0000 {
-			no-map;
-			reg = <0x987f0000 0x00010000>; /* 64KB */
-		};
-
 		vga_memory: framebuffer@9f000000 {
 			no-map;
 			reg = <0x9f000000 0x01000000>; /* 16M */
@@ -46,11 +41,6 @@
             	alignment = <0x01000000>;
             	compatible = "shared-dma-pool";
             	reusable;
-        };
-
-        flash_memory: region@98000000 {
-            			no-map;
-            			reg = <0x98000000 0x04000000>; /* 64M */
         };
 
         b_3v3: regulator-sb3v3 {
@@ -89,25 +79,10 @@
 	};
 };
 
-&spi1 {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi1_default>;
-
-	flash@0 {
-		status = "okay";
-		m25p,fast-read;
-	};
-};
 
 &video {
 	status = "okay";
 	memory-region = <&video_engine_memory>;
-};
-
-&p2a {
-	status = "okay";
-	memory-region = <&p2a_memory>;
 };
 
 &uart1 {
@@ -132,17 +107,6 @@
 
 &vuart {
 	status = "okay";
-};
-
-&lpc_ctrl {
-	status = "okay";
-	memory-region = <&flash_memory>;
-	flash = <&spi1>;
-};
-
-&lpc_snoop {
-	status = "okay";
-	snoop-ports = <0x80>;
 };
 
 &vhub {
@@ -445,11 +409,13 @@
 	/*62 H6*/   "uiddled_out", /* out: UIDLED_OUT */
 	/*63 H7*/   "flash-override", /*in: FLASH_OVERRIDE */
 	/*64 I0*/	"post-complete-old",  /*  out: FM_BIOS_POST_CMPLT_N */
-	/*I1*/      "intruder_chassis", /* out: SIO_CHASSIS */
-	/*I2*/      "led-heartbeat", /* out: "HEART BIT" */
-	            "",
-	            "",
-	            "","","",
+	/*65 I1*/   "intruder_chassis", /* out: SIO_CHASSIS */
+	/*66 I2*/   "led-heartbeat", /* out: "HEART BIT" */
+	/*67 I3*/   "",
+	/*68 I4*/   "",
+	/*69 I5*/   "",
+	/*70 I6*/   "",
+	/*71 I7*/   "",
 	/*J0-J7*/	"","","","","","","","",
 	/*K0-K7*/	"","","","","","","","",
 	/*L0-L7*/	"","","","","","","","",
