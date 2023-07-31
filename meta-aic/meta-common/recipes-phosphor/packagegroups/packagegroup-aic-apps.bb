@@ -34,7 +34,5 @@ RDEPENDS:${PN}-system = " \
         phosphor-hostlogger \
         phosphor-sel-logger \
         ipmitool \
-        phosphor-post-code-manager \
-        phosphor-host-postd \
         webui-vue \
         "
