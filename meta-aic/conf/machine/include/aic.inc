@@ -16,5 +16,5 @@ VIRTUAL-RUNTIME_obmc-chassis-state-manager ?= "x86-power-control"
 
 PREFERRED_PROVIDER_virtual/obmc-chassis-mgmt = "packagegroup-aic-apps"
 PREFERRED_PROVIDER_virtual/obmc-flash-mgmt = "packagegroup-aic-apps"
-#PREFERRED_PROVIDER_virtual/obmc-host-ipmi-hw ?= "phosphor-ipmi-kcs"
+PREFERRED_PROVIDER_virtual/obmc-host-ipmi-hw ?= "phosphor-ipmi-kcs"
 PREFERRED_PROVIDER_virtual/obmc-system-mgmt = "packagegroup-aic-apps"
