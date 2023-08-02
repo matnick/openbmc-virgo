@@ -70,7 +70,7 @@
 };
 
 &fmc {
-	status = "okay";
+	status = "disabled";
 	flash@0 {
 		label = "bmc";
 		status = "okay";
