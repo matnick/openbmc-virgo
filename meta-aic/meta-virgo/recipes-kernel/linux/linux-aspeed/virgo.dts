@@ -71,13 +71,6 @@
 	};
 };
 
-&spi1 {
-    status = "disabled";
-}
-
-&spi2 {
-    status = "disabled";
-}
 
 &video {
 	status = "okay";
@@ -224,10 +217,14 @@
 
 &mac0 {
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_rmii1_default>;
 };
 
 &mac1 {
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
 };
 
 /* Enable BMC VGA output to show an early (pre-BIOS) boot screen */
