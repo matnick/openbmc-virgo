@@ -22,7 +22,7 @@
         "Name" : "PostComplete",
         "LineName" : "post-complete",
         "Type" : "GPIO",
-        "Polarity" : "ActiveHigh"
+        "Polarity" : "ActiveLow"
     },
     {
         "Name" : "PowerButton",
