@@ -61,6 +61,11 @@
 
 };
 
+pinctrl_spi1passthru_default {
+	function = "FM_BIOS_POST_CMPLT_N";
+	groups = "BIOS";
+};
+
 &fmc {
 	status = "okay";
 	flash@0 {
