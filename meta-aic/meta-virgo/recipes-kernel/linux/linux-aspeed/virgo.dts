@@ -71,10 +71,6 @@
 	};
 };
 
-&spi0 {
-    status = "disabled";
-};
-
 &spi1 {
     status = "disabled";
 };
