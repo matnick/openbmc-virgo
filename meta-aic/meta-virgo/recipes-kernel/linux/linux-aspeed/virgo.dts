@@ -79,10 +79,6 @@
     status = "disabled";
 };
 
-peci0: {
-	status = "okay";
-};
-
 &video {
 	status = "okay";
 	memory-region = <&video_engine_memory>;
@@ -177,6 +173,42 @@ peci0: {
     * 0xe0
 	*/
 
+};
+
+&i2c7 {
+	status = "okay";
+
+	/*
+	 * Front Panel 2x25
+	 */
+};
+
+&i2c8 {
+	status = "okay";
+
+	/*
+	* Box Header 2x3
+	*/
+};
+
+&i2c9 {
+	status = "okay";
+
+	/*
+	* Pin Header 1x3
+	*/
+};
+
+&i2c10 {
+	status = "okay";
+};
+
+&i2c11 {
+	status = "okay";
+};
+
+&i2c12 {
+	status = "okay";
 };
 
 &i2c13 {
