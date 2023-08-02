@@ -54,7 +54,7 @@
 	};
 
     /* OK ADC 16 */
-	/*iio-hwmon {
+	iio-hwmon {
 		compatible = "iio-hwmon";
 		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>,
 			<&adc 4>, <&adc 5>, <&adc 6>, <&adc 7>,
@@ -65,7 +65,7 @@
 	iio-hwmon-battery {
     		compatible = "iio-hwmon";
     		io-channels = <&adc 15>;
-    };*/
+    };
 
 };
 
@@ -89,7 +89,27 @@
 	status = "okay";
 };
 
+&uart2 {
+	status = "okay";
+};
+
+&uart4 {
+	status = "okay";
+};
+
 &uart5 {
+	status = "okay";
+};
+
+&uart_routing {
+	status = "okay";
+};
+
+&vuart {
+	status = "okay";
+};
+
+&vhub {
 	status = "okay";
 };
 
