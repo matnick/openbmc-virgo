@@ -79,6 +79,10 @@
 	};
 };
 
+&spi1 {
+	status = "okay";
+};
+
 &pinctrl_spi1passthru_default {
 	function = "FM_BIOS_POST_CMPLT_N";
 	groups = "FM_BIOS_POST_CMPLT_N";
