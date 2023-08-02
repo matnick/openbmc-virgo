@@ -43,14 +43,6 @@
             	reusable;
         };
 
-        b_3v3: regulator-sb3v3 {
-        		compatible = "regulator-fixed";
-        		regulator-name = "MC34717-3.3VSB";
-        		regulator-min-microvolt = <3300000>;
-        		regulator-max-microvolt = <3300000>;
-        		regulator-boot-on;
-        		regulator-always-on;
-        	};
 	};
 
     /* OK ADC 16 */
@@ -272,7 +264,7 @@
 	/*6 A6*/    "",
 	/*7 A7*/    "",
 	/*8 B0*/    "",
-	/*9 B1*/   "",
+	/*9 B1*/    "",
 	/*10 B2*/   "",
 	/*11 B3*/   "",
 	/*12 B4*/   "",
