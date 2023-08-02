@@ -30,6 +30,7 @@ RDEPENDS:${PN}-flash = " \
 
 SUMMARY:${PN}-system = "AIC System"
 RDEPENDS:${PN}-system = " \
+        dbus-sensors \
         phosphor-hostlogger \
         phosphor-sel-logger \
         ipmitool \
