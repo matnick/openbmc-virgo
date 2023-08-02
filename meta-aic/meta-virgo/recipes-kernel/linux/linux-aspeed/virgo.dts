@@ -79,8 +79,12 @@
     status = "disabled";
 };
 
-peci0: {
+&peci0: {
 	status = "okay";
+};
+
+&sgpio {
+    status = "okay";
 };
 
 &video {
