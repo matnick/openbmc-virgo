@@ -255,14 +255,6 @@
 	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
 };
 
-&kcs1 {
-	status = "okay";
-};
-
-&kcs3 {
-	status = "okay";
-};
-
 /* Enable BMC VGA output to show an early (pre-BIOS) boot screen */
 &gfx {
 	status = "okay";
