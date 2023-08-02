@@ -79,7 +79,7 @@
     status = "disabled";
 };
 
-&peci0: {
+&peci0 {
 	status = "okay";
 };
 
