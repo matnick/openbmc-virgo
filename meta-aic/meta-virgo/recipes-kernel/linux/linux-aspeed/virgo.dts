@@ -61,7 +61,7 @@
 
 };
 
-&pinctrl_spi1passthru_default {
+pinctrl_spi1passthru_default {
 	function = "FM_BIOS_POST_CMPLT_N";
 	groups = "BIOS";
 };
