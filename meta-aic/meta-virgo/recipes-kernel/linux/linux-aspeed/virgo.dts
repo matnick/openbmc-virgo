@@ -43,14 +43,15 @@
             	reusable;
         };
 
-        b_3v3: regulator-sb3v3 {
-        		compatible = "regulator-fixed";
-        		regulator-name = "MC34717-3.3VSB";
-        		regulator-min-microvolt = <3300000>;
-        		regulator-max-microvolt = <3300000>;
-        		regulator-boot-on;
-        		regulator-always-on;
-        	};
+	};
+
+	leds {
+	    compatible = "gpio-leds";
+	    bmc_alive {
+		label = "bmc_alive";
+		gpios = <&gpio ASPEED_GPIO(I, 2) GPIO_ACTIVE_LOW>;
+		linux,default-trigger = "timer";
+	    };
 	};
 
     /* OK ADC 16 */
@@ -81,6 +82,39 @@
 
 &spi1 {
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_spi1_default>;
+
+	flash@0 {
+		status = "okay";
+		m25p,fast-read;
+		label = "pnor";
+	};
+};
+
+&lpc_ctrl {
+	status = "okay";
+	memory-region = <&flash_memory>;
+	flash = <&spi1>;
+};
+
+&lpc_snoop {
+	status = "okay";
+	snoop-ports = <0x80>;
+};
+
+&spi2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_spi2ck_default
+		     &pinctrl_spi2cs0_default
+		     &pinctrl_spi2cs1_default
+		     &pinctrl_spi2miso_default
+		     &pinctrl_spi2mosi_default>;
+
+	flash@0 {
+		status = "okay";
+	};
 };
 
 &pinctrl_spi1passthru_default {
