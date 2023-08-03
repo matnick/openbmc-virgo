@@ -5,6 +5,7 @@ SRC_URI:append = " \
   "
 
 SRC_URI += "file://virgo.dts \
+            file://driver-test.patch \
             "
 
 do_patch:append() {

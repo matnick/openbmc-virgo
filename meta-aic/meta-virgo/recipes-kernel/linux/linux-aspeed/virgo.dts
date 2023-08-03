@@ -73,6 +73,16 @@
     		io-channels = <&adc 15>;
     };
 
+    spi_mode_ctrl: spi_mode {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        compatible = "aspeed,aspeed_spi_mode";
+        start_mode = <1>;
+        status = "okay";
+        reg = < 0x1e6e2070 0x4
+                0x1e6e207c 0x4 >;
+    };
+
 };
 
 &fmc {
