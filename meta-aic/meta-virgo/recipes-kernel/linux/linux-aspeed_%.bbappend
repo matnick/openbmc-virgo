@@ -5,7 +5,6 @@ SRC_URI:append = " \
   "
 
 SRC_URI += "file://virgo.dts \
-            file://2-2-arm-aspeed-Set-SPI-master-strap-for-all-boards.patch \
             "
 
 do_patch:append() {
