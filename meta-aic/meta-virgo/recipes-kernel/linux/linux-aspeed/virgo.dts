@@ -73,20 +73,6 @@
     		io-channels = <&adc 15>;
     };
 
-   //spi mode to override HW strap setting during probe.
-   //Can be 0(disabled) 1(master) or 3(pass-through).
-   //If not defined, HW strap or pinctrl setting is kept.
-
-    spi_mode_ctrl: spi_mode {
-        #address-cells = <1>;
-        #size-cells = <1>;
-        compatible = "aspeed,aspeed_spi_mode";
-        start_mode = <3>;
-        status = "okay";
-        reg = < 0x1e6e2070 0x4
-                0x1e6e207c 0x4 >;
-    };
-
 };
 
 &fmc {
