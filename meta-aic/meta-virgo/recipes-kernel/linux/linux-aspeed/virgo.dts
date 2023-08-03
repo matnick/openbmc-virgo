@@ -122,12 +122,6 @@
 	};
 };
 
-&pinctrl_spi1passthru_default {
-	function = "FM_BIOS_POST_CMPLT_N";
-	groups = "FM_BIOS_POST_CMPLT_N";
-};
-
-
 &video {
 	status = "okay";
 	memory-region = <&video_engine_memory>;
