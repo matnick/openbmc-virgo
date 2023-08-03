@@ -7,7 +7,7 @@
 
 / {
 	model = "AIC Virgo";
-	compatible = "aic,virgo", "aspeed,ast2500";
+	compatible = "aic,virgo", "ingrasys,zaius-bmc", "aspeed,ast2500";
 
 	chosen {
 		stdout-path = &uart5;
