@@ -86,7 +86,7 @@
 };
 
 &spi1 {
-	status = "okay";
+	status = "disabled";
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_spi1passthru_default>;
 
@@ -109,7 +109,7 @@
 };
 
 &spi2 {
-	status = "okay";
+	status = "disabled";
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_spi2ck_default
 		     &pinctrl_spi2cs0_default
@@ -118,7 +118,7 @@
 		     &pinctrl_spi2mosi_default>;
 
 	flash@0 {
-		status = "okay";
+		status = "disabled";
 	};
 };
 
