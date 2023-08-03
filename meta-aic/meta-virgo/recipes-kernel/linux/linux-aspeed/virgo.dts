@@ -91,7 +91,7 @@
 	pinctrl-0 = <&pinctrl_spi1passthru_default>;
 
 	flash@0 {
-		status = "okay";
+		status = "disabled";
 		m25p,fast-read;
 		label = "pnor";
 	};
