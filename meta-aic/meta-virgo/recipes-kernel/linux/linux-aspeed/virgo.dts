@@ -7,7 +7,7 @@
 
 / {
 	model = "AIC Virgo";
-	compatible = "aic,virgo", "ingrasys,zaius-bmc", "aspeed,ast2500";
+	compatible = "aic,virgo", "aspeed,ast2500";
 
 	chosen {
 		stdout-path = &uart5;
@@ -85,10 +85,33 @@
 	};
 };
 
+&adc {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_adc0_default
+			&pinctrl_adc1_default
+			&pinctrl_adc2_default
+			&pinctrl_adc3_default
+			&pinctrl_adc4_default
+			&pinctrl_adc5_default
+			&pinctrl_adc6_default
+			&pinctrl_adc7_default
+			&pinctrl_adc8_default
+			&pinctrl_adc9_default
+			&pinctrl_adc10_default
+			&pinctrl_adc11_default
+			&pinctrl_adc12_default
+			&pinctrl_adc13_default
+			&pinctrl_adc14_default
+			&pinctrl_adc15_default>;
+};
+
 &spi1 {
 	status = "disabled";
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi1passthru_default>;
+	pinctrl-0 = <&pinctrl_spi1passthru_default
+	             &pinctrl_spi1debug_default
+                 &pinctrl_spi1passthru_default>;
 
 	flash@0 {
 		status = "disabled";
@@ -343,7 +366,7 @@
 	/*6 A6*/    "",
 	/*7 A7*/    "",
 	/*8 B0*/    "",
-	/*9 B1*/   "",
+	/*9 B1*/    "",
 	/*10 B2*/   "",
 	/*11 B3*/   "",
 	/*12 B4*/   "",
