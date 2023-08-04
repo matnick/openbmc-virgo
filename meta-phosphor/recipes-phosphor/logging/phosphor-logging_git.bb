@@ -16,7 +16,7 @@ DEPENDS += "libcereal"
 DEPENDS += "sdeventplus"
 DEPENDS += "packagegroup-obmc-yaml-providers"
 DEPENDS += "dbus"
-SRCREV = "1cb59f70f1fa1caa10c700ba954e9b5fd85afed5"
+SRCREV = "52ee3a4f84a91bcd03de377452ff89d4b325317c"
 PACKAGECONFIG ??= ""
 PACKAGECONFIG[openpower-pels] = " \
         -Dopenpower-pel-extension=enabled, \
@@ -39,7 +39,7 @@ inherit phosphor-logging
 inherit phosphor-dbus-yaml
 
 def get_info_cap(d):
-    flash_size = int(d.getVar('FLASH_SIZE'))
+    flash_size = int(d.getVar('FLASH_SIZE') or 0)
     if flash_size <= 32768:
         return "10"
     elif flash_size <= 65536:
