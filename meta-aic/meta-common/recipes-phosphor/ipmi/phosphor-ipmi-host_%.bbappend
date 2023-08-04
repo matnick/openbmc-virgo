@@ -1,4 +1,4 @@
-#PACKAGECONFIG:append = "dynamic-sensors"
+PACKAGECONFIG:append = "dynamic-sensors"
 
 FILESEXTRAPATHS:append := "${THISDIR}/${PN}:"
 
