@@ -86,12 +86,12 @@
 };
 
 &spi1 {
-	status = "okay";
+	status = "disabled";
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi1cs1_default>;
+	pinctrl-0 = <&pinctrl_spi1passthru_default>;
 
 	flash@0 {
-		status = "okay";
+		status = "disabled";
 		m25p,fast-read;
 		label = "pnor";
 	};
@@ -332,6 +332,11 @@
  */
 &gpio {
 	status = "okay";
+
+	line_post-complete {
+    		gpios = <ASPEED_GPIO(I, 0) GPIO_ACTIVE_LOW>;
+    };
+
 	gpio-line-names =
 	/*0 A0*/	"",
 	/*1 A1*/	"",
