@@ -333,10 +333,6 @@
 &gpio {
 	status = "okay";
 
-	line_post-complete {
-    		gpios = <ASPEED_GPIO(I, 0) GPIO_ACTIVE_LOW>;
-    };
-
 	gpio-line-names =
 	/*0 A0*/	"",
 	/*1 A1*/	"",
@@ -450,4 +446,8 @@
 	/*AA6*/		"",
 	/*AA7*/		"",
 	/*AB0-AB7*/	"","","","","","","","";
+
+	line_post-complete {
+        gpios = <ASPEED_GPIO(I, 0) GPIO_ACTIVE_LOW>;
+    };
 };
