@@ -1,6 +1,6 @@
 FILESEXTRAPATHS:append:ncplite := "${THISDIR}/${PN}:"
 
-NCPLITE_OBMC_GPIO_INSTANCES = "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14"
+NCPLITE_OBMC_GPIO_INSTANCES = "0 1 2 3 4"
 NCPLITE_OBMC_GPIO_ENV_FMT = "obmc/gpio/gpio-{0}.conf"
 
 TMPL = "phosphor-gpio-presence@.service"
