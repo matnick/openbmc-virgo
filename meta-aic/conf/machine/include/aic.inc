@@ -8,8 +8,8 @@ MACHINE_FEATURES += "\
         obmc-phosphor-flash-mgmt \
         "
 
-VIRTUAL-RUNTIME_obmc-inventory-manager = "entity-manager"
-PREFERRED_PROVIDER_virtual/obmc-inventory-data = "entity-manager"
+VIRTUAL-RUNTIME_obmc-inventory-manager = "phosphor-inventory-manager"
+PREFERRED_PROVIDER_virtual/obmc-inventory-data = "phosphor-inventory-manager"
 
 VIRTUAL-RUNTIME_obmc-host-state-manager ?= "x86-power-control"
 VIRTUAL-RUNTIME_obmc-chassis-state-manager ?= "x86-power-control"

@@ -33,9 +33,9 @@ RDEPENDS:${PN}-system = " \
         dbus-sensors \
         phosphor-hostlogger \
         phosphor-sel-logger \
+        phosphor-ipmi-fru \
+        phosphor-inventory-manager \
         ipmitool \
-        entity-manager \
-        intel-ipmi-oem \
         smbios-mdr \
         webui-vue \
         "

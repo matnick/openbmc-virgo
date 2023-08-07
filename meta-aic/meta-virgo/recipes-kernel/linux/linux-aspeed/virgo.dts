@@ -181,6 +181,7 @@
 &i2c0 {
 	/* IPMB and Switch */
 	status = "okay";
+
 };
 
 &i2c1 {
@@ -320,12 +321,13 @@
 	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
 };
 
-&kcs1 {
-	status = "okay";
-};
-
 &kcs3 {
 	status = "okay";
+	aspeed,lpc-io-reg = <0xca2>;
+};
+
+&peci0 {
+    status = "okay";
 };
 
 /* Enable BMC VGA output to show an early (pre-BIOS) boot screen */
