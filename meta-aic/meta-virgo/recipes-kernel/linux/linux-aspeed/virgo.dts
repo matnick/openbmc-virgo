@@ -85,8 +85,8 @@
 	};
 };
 
-&adc {
-	status = "okay";
+/*&adc {
+	status = "";
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_adc0_default
 			&pinctrl_adc1_default
@@ -104,7 +104,7 @@
 			&pinctrl_adc13_default
 			&pinctrl_adc14_default
 			&pinctrl_adc15_default>;
-};
+};*/
 
 &spi1 {
 	status = "disabled";
