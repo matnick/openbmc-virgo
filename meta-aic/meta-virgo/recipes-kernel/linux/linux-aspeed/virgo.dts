@@ -111,7 +111,7 @@
 
 &pwm_tacho {
 	status = "okay";
-}
+};
 
 &lpc_ctrl {
 	status = "okay";
