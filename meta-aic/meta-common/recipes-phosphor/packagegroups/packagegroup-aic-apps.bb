@@ -33,9 +33,11 @@ RDEPENDS:${PN}-system = " \
         dbus-sensors \
         phosphor-hostlogger \
         phosphor-sel-logger \
-        phosphor-ipmi-fru \
-        phosphor-inventory-manager \
         ipmitool \
+        phosphor-post-code-manager \
+        phosphor-host-postd \
+        phosphor-ipmi-fru \
+        entity-manager \
         smbios-mdr \
         peci-pcie \
         iotools \
