@@ -24,6 +24,12 @@
 		#size-cells = <1>;
 		ranges;
 
+		p2a_memory: region@987f0000 {
+        	no-map;
+        	reg = <0x987f0000 0x00010000>; /* 64KB */
+        };
+
+
 		vga_memory: framebuffer@9f000000 {
 			no-map;
 			reg = <0x9f000000 0x01000000>; /* 16M */
@@ -87,23 +93,6 @@
 
 &adc {
 	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_adc0_default
-			&pinctrl_adc1_default
-			&pinctrl_adc2_default
-			&pinctrl_adc3_default
-			&pinctrl_adc4_default
-			&pinctrl_adc5_default
-			&pinctrl_adc6_default
-			&pinctrl_adc7_default
-			&pinctrl_adc8_default
-			&pinctrl_adc9_default
-			&pinctrl_adc10_default
-			&pinctrl_adc11_default
-			&pinctrl_adc12_default
-			&pinctrl_adc13_default
-			&pinctrl_adc14_default
-			&pinctrl_adc15_default>;
 };
 
 &spi1 {
@@ -119,6 +108,10 @@
 		label = "pnor";
 	};
 };
+
+&pwm_tacho {
+	status = "okay";
+}
 
 &lpc_ctrl {
 	status = "okay";
@@ -174,6 +167,15 @@
 	status = "okay";
 };
 
+&ibt {
+	status = "okay";
+};
+
+&p2a {
+	status = "okay";
+	memory-region = <&p2a_memory>;
+};
+
 &vhub {
     status = "okay";
 	pinctrl-names = "default";
@@ -216,18 +218,18 @@
 	status = "okay";
 
 	/* THERMAL SENSORS LM95241CIMM */
-	sensor@32 {
-		compatible = "nat,lm95241";
+	lm95241-1: lm95241@32 {
+		compatible = "national,lm95241";
 		reg = <0x32>;
 	};
 
-	sensor@54 {
-    		compatible = "nat,lm95241";
+	lm95241-2:lm95241@54 {
+    		compatible = "national,lm95241";
     		reg = <0x54>;
     };
 
-	sensor@56 {
-    		compatible = "nat,lm95241";
+	lm95241-3:lm95241@56 {
+    		compatible = "national,lm95241";
     		reg = <0x56>;
     };
 };
