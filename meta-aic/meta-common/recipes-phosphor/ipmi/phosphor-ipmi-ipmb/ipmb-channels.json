@@ -3,14 +3,14 @@
     {
       "type": "me",
       "slave-path": "/dev/ipmb-0",
-      "bmc-addr": 34,
-      "remote-addr": 54
+      "bmc-addr": 32,
+      "remote-addr": 44
     },
     {
       "type": "ipmb",
       "slave-path": "/dev/ipmb-5",
-      "bmc-addr": 34,
-      "remote-addr": 54
+      "bmc-addr": 32,
+      "remote-addr": 56
     }
   ]
 }
