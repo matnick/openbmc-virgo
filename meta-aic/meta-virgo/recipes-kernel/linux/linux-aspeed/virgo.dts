@@ -473,7 +473,4 @@
 	/*AA7*/		"",
 	/*AB0-AB7*/	"","","","","","","","";
 
-	line_post-complete {
-        gpios = <ASPEED_GPIO(I, 0) GPIO_ACTIVE_LOW>;
-    };
 };
