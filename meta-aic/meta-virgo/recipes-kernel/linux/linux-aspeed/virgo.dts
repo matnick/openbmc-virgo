@@ -43,10 +43,10 @@
             	reusable;
         };
 
-        flash_memory: region@98000000 {
+        /*flash_memory: region@98000000 {
         			no-map;
         			reg = <0x98000000 0x04000000>; /* 64M */
-        };
+        /*};*/
 
 	};
 
