@@ -46,7 +46,7 @@
         flash_memory: region@98000000 {
         		no-map;
         		reg = <0x98000000 0x04000000>; /* 64M */
-        };*/
+        };
 
 	};
 
@@ -109,7 +109,7 @@
 &spi1 {
 	status = "disabled";
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi1passthru_default
+	pinctrl-0 = <&pinctrl_spi1_default
 	             &pinctrl_spi1debug_default
                  &pinctrl_spi1passthru_default>;
 
