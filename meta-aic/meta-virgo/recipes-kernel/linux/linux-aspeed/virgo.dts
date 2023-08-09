@@ -129,7 +129,7 @@
 &lpc_snoop {
 	status = "okay";
 	snoop-ports = <0x80>;
-};*/
+};
 
 &spi2 {
 	status = "disabled";
