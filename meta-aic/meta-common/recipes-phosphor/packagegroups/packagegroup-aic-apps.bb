@@ -39,7 +39,6 @@ RDEPENDS:${PN}-system = " \
         phosphor-ipmi-fru \
         entity-manager \
         smbios-mdr \
-        peci-pcie \
         iotools \
         i2c-tools \
         webui-vue \
