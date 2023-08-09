@@ -50,14 +50,14 @@
 
 	};
 
-	leds {
+	/*leds {
 	    compatible = "gpio-leds";
 	    bmc_alive {
 		label = "bmc_alive";
 		gpios = <&gpio ASPEED_GPIO(I, 2) GPIO_ACTIVE_LOW>;
 		linux,default-trigger = "timer";
 	    };
-	};
+	};*/
 
     /* OK ADC 16 */
 	iio-hwmon {
