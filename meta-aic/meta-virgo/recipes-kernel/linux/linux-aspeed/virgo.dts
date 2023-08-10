@@ -96,14 +96,12 @@
 };
 
 &spi1 {
-	status = "disabled";
+	status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi1_default
-	             &pinctrl_spi1debug_default
-                 &pinctrl_spi1passthru_default>;
+	pinctrl-0 = <&pinctrl_spi1_default>;
 
 	flash@0 {
-		status = "disabled";
+		status = "okay";
 		m25p,fast-read;
 		label = "pnor";
 	};
