@@ -38,7 +38,6 @@ RDEPENDS:${PN}-system = " \
         phosphor-host-postd \
         phosphor-ipmi-fru \
         phosphor-ipmi-flash \
-        biosconfig-manager \
         entity-manager \
         smbios-mdr \
         jsnbd \
