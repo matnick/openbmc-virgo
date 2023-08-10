@@ -30,13 +30,10 @@ RDEPENDS:${PN}-flash = " \
 
 SUMMARY:${PN}-system = "AIC System"
 RDEPENDS:${PN}-system = " \
-        dbus-sensors \
         lmsensors \
         phosphor-hostlogger \
-        phosphor-sel-logger \
         phosphor-post-code-manager \
         phosphor-host-postd \
-        phosphor-ipmi-fru \
         entity-manager \
         bmcweb \
         ipmitool \

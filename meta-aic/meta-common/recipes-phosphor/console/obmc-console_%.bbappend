@@ -1,7 +1,7 @@
 FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
 RDEPENDS:${PN} += "bash"
 
-OBMC_CONSOLE_HOST_TTY = "ttyS2"
+OBMC_CONSOLE_HOST_TTY = "ttyS3"
 SRC_URI += " \
         file://obmc-console@.service \
         file://uart-remapping.sh \
