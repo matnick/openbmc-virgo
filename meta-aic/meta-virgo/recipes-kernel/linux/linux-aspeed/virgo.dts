@@ -107,6 +107,20 @@
 	};
 };
 
+&spi2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_spi2ck_default
+		     &pinctrl_spi2cs0_default
+		     &pinctrl_spi2cs1_default
+		     &pinctrl_spi2miso_default
+		     &pinctrl_spi2mosi_default>;
+
+	flash@0 {
+		status = "okay";
+	};
+};
+
 &pwm_tacho {
 	status = "okay";
 };
@@ -120,20 +134,6 @@
 &lpc_snoop {
 	status = "okay";
 	snoop-ports = <0x80>;
-};
-
-&spi2 {
-	status = "disabled";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi2ck_default
-		     &pinctrl_spi2cs0_default
-		     &pinctrl_spi2cs1_default
-		     &pinctrl_spi2miso_default
-		     &pinctrl_spi2mosi_default>;
-
-	flash@0 {
-		status = "disabled";
-	};
 };
 
 &video {
@@ -335,6 +335,10 @@
 &gfx {
 	status = "okay";
 	memory-region = <&gfx_memory>;
+};
+
+&lhc {
+	status = "okay";
 };
 
 /* We're following the GPIO naming as defined at
