@@ -87,7 +87,7 @@
 		label = "bmc";
 		status = "okay";
 		m25p,fast-read;
-#include "openbmc-flash-layout.dtsi"
+#include "openbmc-flash-layout-64.dtsi"
 	};
 };
 
