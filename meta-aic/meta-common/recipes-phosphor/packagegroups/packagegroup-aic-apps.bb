@@ -38,5 +38,8 @@ RDEPENDS:${PN}-system = " \
         bmcweb \
         ipmitool \
         i2c-tools \
+        smbios-mdr \
+        phosphor-ipmi-blobs \
+        biosconfig-manager \
         webui-vue \
         "
