@@ -216,19 +216,19 @@
 	status = "okay";
 
 	/* THERMAL SENSORS LM95241CIMM */
-	sensor1: lm95241@32 {
+	sensor1: lm95241@19 {
 		compatible = "national,lm95241";
-		reg = <0x32>;
+		reg = <0x19>;
 	};
 
-	sensor2: lm95241@54 {
+	sensor2: lm95241@2a {
     		compatible = "national,lm95241";
-    		reg = <0x54>;
+    		reg = <0x2a>;
     };
 
-	sensor3: lm95241@56 {
+	sensor3: lm95241@2b {
     		compatible = "national,lm95241";
-    		reg = <0x56>;
+    		reg = <0x2b>;
     };
 };
 
