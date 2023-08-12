@@ -42,7 +42,5 @@ RDEPENDS:${PN}-system = " \
         smbios-mdr \
         phosphor-ipmi-blobs \
         biosconfig-manager \
-        intel-ipmi-oem \
         webui-vue \
-        peci-pcie \
         "
