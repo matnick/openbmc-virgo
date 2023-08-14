@@ -43,4 +43,5 @@ RDEPENDS:${PN}-system = " \
         phosphor-ipmi-blobs \
         biosconfig-manager \
         webui-vue \
+        peci-pcie \
         "
