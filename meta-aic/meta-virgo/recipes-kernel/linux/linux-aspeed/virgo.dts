@@ -214,22 +214,6 @@
 
 &i2c3 {
 	status = "okay";
-
-	/* THERMAL SENSORS LM95241CIMM */
-	sensor1: lm95241@19 {
-		compatible = "national,lm95241";
-		reg = <0x19>;
-	};
-
-	sensor2: lm95241@2a {
-    		compatible = "national,lm95241";
-    		reg = <0x2a>;
-    };
-
-	sensor3: lm95241@2b {
-    		compatible = "national,lm95241";
-    		reg = <0x2b>;
-    };
 };
 
 &i2c4 {
