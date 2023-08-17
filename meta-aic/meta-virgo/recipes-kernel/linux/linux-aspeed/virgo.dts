@@ -24,9 +24,9 @@
 		#size-cells = <1>;
 		ranges;
 
-		p2a_memory: region@9c7f0000 {
+		p2a_memory: region@987f0000 {
         	no-map;
-        	reg = <0x9c100000 0x00010000>; /* 64KB */
+        	reg = <0x987f0000 0x00010000>; /* 64KB */
         };
 
 
@@ -51,7 +51,7 @@
 
         flash_memory: region@98000000 {
         		no-map;
-        		reg = <0x98000000 0x04000000>; /* 64M */
+        		reg = <0x98800000 0x04000000>; /* 64M */
         };
 
 	};
