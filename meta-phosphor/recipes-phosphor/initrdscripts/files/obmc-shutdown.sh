@@ -16,8 +16,8 @@ else
 fi
 
 #TODO: Remove, temp fix
-mount /run/initramfs/rw
 umount /run/initramfs/rw
+umount /run/initramfs/ro
 
 # Remove an empty oldroot, that means we are not invoked from systemd-shutdown
 rmdir /oldroot 2>/dev/null
