@@ -15,10 +15,6 @@ else
 	umount_proc=
 fi
 
-#TODO: Remove, temp fix
-umount /run/initramfs/rw
-umount /run/initramfs/ro
-
 # Remove an empty oldroot, that means we are not invoked from systemd-shutdown
 rmdir /oldroot 2>/dev/null
 
@@ -33,6 +29,10 @@ do
 	umount "$f"
 done
 set +x
+
+#TODO: Remove, temp fix
+umount /run/initramfs/rw
+umount /run/initramfs/ro
 
 update=/run/initramfs/update
 image=/run/initramfs/image-
