@@ -4,7 +4,6 @@ RDEPENDS:${PN} += "bash"
 OBMC_CONSOLE_HOST_TTY = "ttyS1-on-host"
 SRC_URI += " \
         file://obmc-console@.service \
-        file://uart-remapping.sh \
 "
 inherit obmc-phosphor-systemd
 
