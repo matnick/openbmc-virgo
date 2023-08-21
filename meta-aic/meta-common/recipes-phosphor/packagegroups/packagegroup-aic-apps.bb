@@ -36,6 +36,7 @@ RDEPENDS:${PN}-system = " \
         phosphor-sel-logger \
         phosphor-post-code-manager \
         phosphor-host-postd \
+        phosphor-led-manager \
         entity-manager \
         bmcweb \
         phosphor-snmp \

@@ -56,14 +56,14 @@
 
 	};
 
-	/*leds {
+	leds {
 	    compatible = "gpio-leds";
 	    bmc_alive {
-		label = "bmc_alive";
-		gpios = <&gpio ASPEED_GPIO(I, 2) GPIO_ACTIVE_LOW>;
-		linux,default-trigger = "timer";
+		    label = "bmc_alive";
+		    gpios = <&gpio ASPEED_GPIO(I, 2) GPIO_ACTIVE_LOW>;
+		    linux,default-trigger = "timer";
 	    };
-	};*/
+	};
 
     /* OK ADC 16 */
 	iio-hwmon {
@@ -223,6 +223,9 @@
 
 &i2c3 {
 	status = "okay";
+	/* Connected to:
+     * Sensors LM95241
+     */
 };
 
 &i2c4 {
