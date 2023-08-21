@@ -33,10 +33,12 @@ RDEPENDS:${PN}-system = " \
         lmsensors \
         dbus-sensors \
         phosphor-hostlogger \
+        phosphor-sel-logger \
         phosphor-post-code-manager \
         phosphor-host-postd \
         entity-manager \
         bmcweb \
+        phosphor-snmp \
         ipmitool \
         i2c-tools \
         smbios-mdr \
