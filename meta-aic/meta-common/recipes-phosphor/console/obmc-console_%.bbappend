@@ -12,6 +12,5 @@ SYSTEMD_SERVICE:${PN} += " \
 "
 
 do_install:append() {
-        rm -rf ${D}${nonarch_base_libdir}/udev/rules.d/80-obmc-console-uart.rules
         install -m 0644 ${WORKDIR}/${PN}@.service -D -t ${D}${systemd_system_unitdir}
 }
