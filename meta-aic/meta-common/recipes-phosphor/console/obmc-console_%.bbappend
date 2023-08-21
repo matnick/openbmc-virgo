@@ -13,4 +13,5 @@ SYSTEMD_SERVICE:${PN} += " \
 
 do_install:append() {
         install -m 0644 ${WORKDIR}/${PN}@.service -D -t ${D}${systemd_system_unitdir}
+        install -m 0644 ${WORKDIR}/${PN}@.service -D -t ${D}${sysconfdir}
 }
