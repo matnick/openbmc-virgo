@@ -29,6 +29,8 @@ RDEPENDS:${PN}-chassis = " \
 SUMMARY:${PN}-flash = "AIC Flash"
 RDEPENDS:${PN}-flash = " \
         phosphor-software-manager \
+        phosphor-ipmi-blobs \
+        phosphor-ipmi-flash \
         "
 
 SUMMARY:${PN}-fan = "AIC Fan"
@@ -49,6 +51,8 @@ RDEPENDS:${PN}-system = " \
         bmcweb \
         phosphor-snmp \
         ipmitool \
+        iotools \
+        openocd \
         i2c-tools \
         smbios-mdr \
         phosphor-ipmi-blobs \
