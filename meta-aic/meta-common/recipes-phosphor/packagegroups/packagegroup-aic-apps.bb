@@ -8,15 +8,18 @@ PACKAGES = " \
         ${PN}-chassis \
         ${PN}-flash \
         ${PN}-system \
+        ${PN}-fan \
         "
 
 PROVIDES += "virtual/obmc-chassis-mgmt"
 PROVIDES += "virtual/obmc-flash-mgmt"
 PROVIDES += "virtual/obmc-system-mgmt"
+PROVIDES += "virtual/obmc-fan-mgmt"
 
 RPROVIDES:${PN}-chassis += "virtual-obmc-chassis-mgmt"
 RPROVIDES:${PN}-flash += "virtual-obmc-flash-mgmt"
 RPROVIDES:${PN}-system += "virtual-obmc-system-mgmt"
+RPROVIDES:${PN}-system += "virtual-obmc-fan-mgmt"
 
 SUMMARY:${PN}-chassis = "AIC Chassis"
 RDEPENDS:${PN}-chassis = " \
@@ -26,6 +29,11 @@ RDEPENDS:${PN}-chassis = " \
 SUMMARY:${PN}-flash = "AIC Flash"
 RDEPENDS:${PN}-flash = " \
         phosphor-software-manager \
+        "
+
+SUMMARY:${PN}-fan = "AIC Fan"
+RDEPENDS:${PN}-flash = " \
+        phosphor-pid-control \
         "
 
 SUMMARY:${PN}-system = "AIC System"
