@@ -32,7 +32,7 @@ RDEPENDS:${PN}-flash = " \
         "
 
 SUMMARY:${PN}-fan = "AIC Fan"
-RDEPENDS:${PN}-flash = " \
+RDEPENDS:${PN}-fan = " \
         phosphor-pid-control \
         "
 
