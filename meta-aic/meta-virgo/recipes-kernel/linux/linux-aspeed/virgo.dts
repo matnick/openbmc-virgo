@@ -98,9 +98,23 @@
             addr-timing = <1>;
             rd-sampling-point = <8>;
             cmd-timeout-ms = <1000>;
+
+            peci-client@30 {
+                compatible = "intel,peci-client";
+                reg = <0x30>;
+            };
+
+            peci-client@31 {
+                compatible = "intel,peci-client";
+                reg = <0x31>;
+            };
+
+            peci-client@32 {
+                compatible = "intel,peci-client";
+                reg = <0x32>;
+            };
         };
     };
-
 };
 
 &fmc {
