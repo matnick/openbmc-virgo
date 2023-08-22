@@ -78,43 +78,6 @@
     		io-channels = <&adc 15>;
     };
 
-    peci: bus@1e78b000 {
-
-        compatible = "simple-bus";
-        #address-cells = <1>;
-        #size-cells = <1>;
-        ranges = <0x0 0x1e78b000 0x60>;
-
-        peci0: peci-bus@0 {
-            compatible = "aspeed,ast2500-peci";
-            reg = <0x0 0x100>;
-            #address-cells = <1>;
-            #size-cells = <0>;
-            interrupts = <15>;
-            clocks = <&syscon ASPEED_CLK_GATE_REFCLK>;
-            resets = <&syscon ASPEED_RESET_PECI>;
-            clock-frequency = <1000000>;
-            msg-timing = <1>;
-            addr-timing = <1>;
-            rd-sampling-point = <8>;
-            cmd-timeout-ms = <1000>;
-
-            peci-client@30 {
-                compatible = "intel,peci-client";
-                reg = <0x30>;
-            };
-
-            peci-client@31 {
-                compatible = "intel,peci-client";
-                reg = <0x31>;
-            };
-
-            peci-client@32 {
-                compatible = "intel,peci-client";
-                reg = <0x32>;
-            };
-        };
-    };
 };
 
 &fmc {
@@ -372,16 +335,36 @@
 	aspeed,lpc-io-reg = <0xca2>;
 };
 
-/*&peci0 {
-	status = "okay";
-	compatible = "aspeed,ast2500-peci";
-	reg = <0x1e78b000 0x60>;
-	interrupts = <15>;
-	clocks = <&syscon ASPEED_CLK_GATE_REFCLK>;
-	resets = <&syscon ASPEED_RESET_PECI>;
-	cmd-timeout-ms = <1000>;
-	clock-frequency = <1000000>;
-};*/
+&peci0 {
+	status = "okay"
+    compatible = "aspeed,ast2500-peci";
+    reg = <0x0 0x100>;
+    #address-cells = <1>;
+    #size-cells = <0>;
+    interrupts = <15>;
+    clocks = <&syscon ASPEED_CLK_GATE_REFCLK>;
+    resets = <&syscon ASPEED_RESET_PECI>;
+    clock-frequency = <1000000>;
+    msg-timing = <1>;
+    addr-timing = <1>;
+    rd-sampling-point = <8>;
+    cmd-timeout-ms = <1000>;
+
+    peci-client@30 {
+        compatible = "intel,peci-client";
+        reg = <0x30>;
+    };
+
+    peci-client@31 {
+        compatible = "intel,peci-client";
+        reg = <0x31>;
+    };
+
+    peci-client@32 {
+        compatible = "intel,peci-client";
+        reg = <0x32>;
+    };
+};
 
 &pwm_tacho {
 	status = "okay";
