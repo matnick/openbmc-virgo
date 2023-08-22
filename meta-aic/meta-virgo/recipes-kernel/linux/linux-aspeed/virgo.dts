@@ -295,18 +295,6 @@
 	*/
 };
 
-&i2c10 {
-	status = "okay";
-};
-
-&i2c11 {
-	status = "okay";
-};
-
-&i2c12 {
-	status = "okay";
-};
-
 &i2c13 {
 	status = "okay";
 
@@ -378,10 +366,6 @@
 &gfx {
 	status = "okay";
 	memory-region = <&gfx_memory>;
-};
-
-&lhc {
-	status = "okay";
 };
 
 /* We're following the GPIO naming as defined at
