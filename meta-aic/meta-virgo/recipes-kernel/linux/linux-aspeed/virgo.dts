@@ -335,7 +335,7 @@
 	aspeed,lpc-io-reg = <0xca2>;
 };
 
-&peci0: peci-controller@1e78b000 {
+&peci0 {
 				compatible = "aspeed,ast2500-peci";
 				reg = <0x1e78b000 0x60>;
 				interrupts = <15>;
