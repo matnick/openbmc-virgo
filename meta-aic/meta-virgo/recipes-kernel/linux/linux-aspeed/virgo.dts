@@ -120,10 +120,6 @@
 	};
 };*/
 
-&pwm_tacho {
-	status = "okay";
-};
-
 &lpc_ctrl {
 	status = "okay";
 	memory-region = <&flash_memory>;
