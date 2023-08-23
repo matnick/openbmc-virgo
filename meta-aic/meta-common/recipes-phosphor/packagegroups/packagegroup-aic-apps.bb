@@ -40,13 +40,14 @@ RDEPENDS:${PN}-fan = " \
 
 SUMMARY:${PN}-system = "AIC System"
 RDEPENDS:${PN}-system = " \
-        lmsensors \
         dbus-sensors \
+        peci-pcie \
         phosphor-hostlogger \
         phosphor-sel-logger \
         phosphor-post-code-manager \
         phosphor-host-postd \
         phosphor-led-manager \
+        phosphor-ipmi-blobs \
         entity-manager \
         bmcweb \
         phosphor-snmp \
@@ -55,8 +56,6 @@ RDEPENDS:${PN}-system = " \
         openocd \
         i2c-tools \
         smbios-mdr \
-        phosphor-ipmi-blobs \
         biosconfig-manager \
         webui-vue \
-        peci-pcie \
         "

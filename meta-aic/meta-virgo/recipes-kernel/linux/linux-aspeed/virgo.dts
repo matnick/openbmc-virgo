@@ -443,7 +443,7 @@
 	/*26 D2*/   "reset-button",  /* in: SW_RST_BTN #  */
 	/*27 D3*/	"reset-control", /* out: PCH_SYSRST */
 	/*28 D4*/   "nmi-button", /* in: FP_NMI_BTN */
-	/*29 D5*/   "nmi-out", /* out: FP_NMI_BTN_OUT */
+	/*29 D5*/   "nmi-control", /* out: FP_NMI_BTN_OUT */
 	/*30 D6*/	"power-chassis-good", /* out: SYSTEM_PWRGD */
 	/*31 D7*/   "power-good",/* SYS ALL GD */
 	/*32 E0*/	"BMC_PE_SMB_SW_BIT1", /* smb sw 1 */
