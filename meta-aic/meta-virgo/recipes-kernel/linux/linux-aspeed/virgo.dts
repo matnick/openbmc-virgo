@@ -106,7 +106,7 @@
 	};
 };
 
-&spi2 {
+/*&spi2 {
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_spi2ck_default
@@ -118,7 +118,7 @@
 	flash@0 {
 		status = "okay";
 	};
-};
+};*/
 
 &pwm_tacho {
 	status = "okay";
@@ -348,41 +348,6 @@
     	reg = <0x01>;
     	aspeed,fan-tach-ch = /bits/ 8 <0x02>;
     };
-
-    fan@3 {
-    	reg = <0x01>;
-    	aspeed,fan-tach-ch = /bits/ 8 <0x03>;
-    };
-
-    fan@4 {
-    	reg = <0x02>;
-    	aspeed,fan-tach-ch = /bits/ 8 <0x04>;
-    };
-
-    fan@5 {
-    	reg = <0x02>;
-    	aspeed,fan-tach-ch = /bits/ 8 <0x05>;
-    };
-
-    fan@6 {
-    	reg = <0x03>;
-    	aspeed,fan-tach-ch = /bits/ 8 <0x06>;
-    };
-
-    fan@7 {
-    	reg = <0x03>;
-    	aspeed,fan-tach-ch = /bits/ 8 <0x07>;
-    };
-
-    fan@8 {
-    	reg = <0x04>;
-    	aspeed,fan-tach-ch = /bits/ 8 <0x08>;
-    };
-
-    fan@9 {
-    	reg = <0x04>;
-    	aspeed,fan-tach-ch = /bits/ 8 <0x09>;
-    };
 };
 
 /* Enable BMC VGA output to show an early (pre-BIOS) boot screen */
@@ -445,7 +410,7 @@
 	/*28 D4*/   "nmi-button", /* in: FP_NMI_BTN */
 	/*29 D5*/   "nmi-control", /* out: FP_NMI_BTN_OUT */
 	/*30 D6*/	"power-chassis-good", /* out: SYSTEM_PWRGD */
-	/*31 D7*/   "power-good",/* SYS ALL GD */
+	/*31 D7*/   "power-good",/* SYS HEALTH 2 */
 	/*32 E0*/	"BMC_PE_SMB_SW_BIT1", /* smb sw 1 */
 	/*33 E1*/	"BMC_PE_SMB_SW_BIT0",/* smb sw 0 */
 	/*34 E2*/	"",
