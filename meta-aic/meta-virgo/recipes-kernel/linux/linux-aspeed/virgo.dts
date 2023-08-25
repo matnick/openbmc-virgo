@@ -106,7 +106,7 @@
 	};
 };
 
-/*&spi2 {
+&spi2 {
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_spi2ck_default
@@ -324,6 +324,37 @@
     aspeed,lpc-io-reg = <0xca4>;
 };
 
+&peci0 {
+	status = "okay";
+    compatible = "aspeed,ast2500-peci";
+    reg = <0x0 0x100>;
+    #address-cells = <1>;
+    #size-cells = <0>;
+    interrupts = <15>;
+    clocks = <&syscon ASPEED_CLK_GATE_REFCLK>;
+    resets = <&syscon ASPEED_RESET_PECI>;
+    clock-frequency = <1000000>;
+    msg-timing = <1>;
+    addr-timing = <1>;
+    rd-sampling-point = <8>;
+    cmd-timeout-ms = <1000>;
+
+    peci-client@30 {
+        compatible = "intel,peci-client";
+        reg = <0x30>;
+    };
+
+    peci-client@31 {
+        compatible = "intel,peci-client";
+        reg = <0x31>;
+    };
+
+    peci-client@32 {
+        compatible = "intel,peci-client";
+        reg = <0x32>;
+    };
+};
+
 &pwm_tacho {
 	status = "okay";
 	pinctrl-names = "default";
@@ -406,7 +437,7 @@
 	/*28 D4*/   "nmi-button", /* in: FP_NMI_BTN */
 	/*29 D5*/   "nmi-control", /* out: FP_NMI_BTN_OUT */
 	/*30 D6*/	"power-chassis-good", /* out: SYSTEM_PWRGD */
-	/*31 D7*/   "power-good",/* SYS HEALTH 2 */
+	/*31 D7*/   "power-good",/* SYS ALL GD */
 	/*32 E0*/	"BMC_PE_SMB_SW_BIT1", /* smb sw 1 */
 	/*33 E1*/	"BMC_PE_SMB_SW_BIT0",/* smb sw 0 */
 	/*34 E2*/	"",
