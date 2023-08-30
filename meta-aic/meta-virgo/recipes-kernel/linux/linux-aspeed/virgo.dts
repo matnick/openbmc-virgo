@@ -324,7 +324,7 @@
     aspeed,lpc-io-reg = <0xca4>;
 };
 
-&peci0 {
+/*&peci0 {
 	status = "okay";
     compatible = "aspeed,ast2500-peci";
     reg = <0x0 0x100>;
@@ -353,7 +353,7 @@
         compatible = "intel,peci-client";
         reg = <0x32>;
     };
-};
+};*/
 
 &pwm_tacho {
 	status = "okay";
