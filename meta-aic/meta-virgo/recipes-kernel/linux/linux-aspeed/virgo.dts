@@ -324,20 +324,8 @@
     aspeed,lpc-io-reg = <0xca4>;
 };
 
-/*&peci0 {
+&peci0 {
 	status = "okay";
-    compatible = "aspeed,ast2500-peci";
-    reg = <0x0 0x100>;
-    #address-cells = <1>;
-    #size-cells = <0>;
-    interrupts = <15>;
-    clocks = <&syscon ASPEED_CLK_GATE_REFCLK>;
-    resets = <&syscon ASPEED_RESET_PECI>;
-    clock-frequency = <1000000>;
-    msg-timing = <1>;
-    addr-timing = <1>;
-    rd-sampling-point = <8>;
-    cmd-timeout-ms = <1000>;
 
     peci-client@30 {
         compatible = "intel,peci-client";
@@ -353,7 +341,7 @@
         compatible = "intel,peci-client";
         reg = <0x32>;
     };
-};*/
+};
 
 &pwm_tacho {
 	status = "okay";
