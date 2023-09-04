@@ -40,7 +40,7 @@ RDEPENDS:${PN}-fan = " \
 
 SUMMARY:${PN}-system = "AIC System"
 RDEPENDS:${PN}-system = " \
-        dbus-sensors \
+        phosphor-hwmon \
         peci-pcie \
         phosphor-hostlogger \
         phosphor-sel-logger \
