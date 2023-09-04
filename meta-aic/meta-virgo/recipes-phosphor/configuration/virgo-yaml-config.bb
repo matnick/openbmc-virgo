@@ -1,4 +1,4 @@
-SUMMARY = "YAML configuration for Daytonax"
+SUMMARY = "YAML configuration for Virgo"
 PR = "r1"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/Apache-2.0;md5=89aea4e17d99a7cacdbeed46a0096b10"
@@ -6,9 +6,9 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/Apache-2.0;md5
 inherit allarch
 
 SRC_URI = " \
-    file://daytonax-ipmi-fru.yaml \
-    file://daytonax-ipmi-fru-properties.yaml \
-    file://daytonax-ipmi-sensors.yaml \
+    file://virgo-ipmi-fru.yaml \
+    file://virgo-ipmi-fru-properties.yaml \
+    file://virgo-ipmi-sensors.yaml \
     "
 
 S = "${WORKDIR}"
