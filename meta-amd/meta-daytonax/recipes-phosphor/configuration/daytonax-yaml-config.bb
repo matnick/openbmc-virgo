@@ -14,13 +14,13 @@ SRC_URI = " \
 S = "${WORKDIR}"
 
 do_install() {
-    cat virgo-ipmi-fru.yaml > fru-read.yaml
+    cat daytonax-ipmi-fru.yaml > fru-read.yaml
 
-    install -m 0644 -D virgo-ipmi-fru-properties.yaml \
+    install -m 0644 -D daytonax-ipmi-fru-properties.yaml \
         ${D}${datadir}/${BPN}/ipmi-extra-properties.yaml
     install -m 0644 -D fru-read.yaml \
         ${D}${datadir}/${BPN}/ipmi-fru-read.yaml
-    install -m 0644 -D virgo-ipmi-sensors.yaml \
+    install -m 0644 -D daytonax-ipmi-sensors.yaml \
         ${D}${datadir}/${BPN}/ipmi-sensors.yaml
 }
 

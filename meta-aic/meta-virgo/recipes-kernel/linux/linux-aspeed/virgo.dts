@@ -185,7 +185,7 @@
 };
 
 &i2c1 {
-	/* SMB_3V3SB_CLK SMB_3V3SB_DAT via SW */
+	/* MB_3V3SB_CLK SMB_3V3SB_DAT via SW */
 	status = "okay";
 
 	/*
