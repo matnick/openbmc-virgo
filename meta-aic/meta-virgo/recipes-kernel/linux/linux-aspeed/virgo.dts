@@ -195,14 +195,14 @@
 };
 
 &i2c0 {
-	/* IPMB and Switch */
+    /* IPMB and Switch */
 	status = "okay";
-    	multi-master;
-    	ipmb0@10 {
-    		compatible = "ipmb-dev";
-    		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-    		i2c-protocol;
-    	};
+	multi-master;
+	ipmb@10 {
+		compatible = "ipmb-dev";
+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
+		i2c-protocol;
+	};
 };
 
 &i2c1 {
