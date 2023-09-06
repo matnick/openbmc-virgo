@@ -124,11 +124,11 @@
 &sdmmc {
     status = "okay";
 
-    &sdhci0 {
+    sdhci0 {
         status = "okay";
     };
 
-    &sdhci1 {
+    sdhci1 {
         status = "okay";
     };
 };
