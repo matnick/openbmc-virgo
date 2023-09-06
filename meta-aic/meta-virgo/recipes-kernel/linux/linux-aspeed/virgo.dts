@@ -135,7 +135,7 @@
 
 &lpc_snoop {
   	status = "okay";
-    snoop-ports = <0x80, 0x81>;
+    snoop-ports = <0x80>, <0x81>;
 };
 
 &video {
