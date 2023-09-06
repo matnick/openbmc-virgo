@@ -121,9 +121,21 @@
 	flash = <&spi1>;
 };
 
+&sdmmc {
+    status = "okay";
+
+    &sdhci0 {
+        status = "okay";
+    };
+
+    &sdhci1 {
+        status = "okay";
+    };
+};
+
 &lpc_snoop {
-	status = "okay";
-	snoop-ports = <0x80>;
+  	status = "okay";
+    snoop-ports = <0x80, 0x81>;
 };
 
 &video {
@@ -145,6 +157,10 @@
 };
 
 &uart2 {
+	status = "okay";
+};
+
+&uart3 {
 	status = "okay";
 };
 
@@ -181,7 +197,12 @@
 &i2c0 {
 	/* IPMB and Switch */
 	status = "okay";
-	multi-master;
+    	multi-master;
+    	ipmb0@10 {
+    		compatible = "ipmb-dev";
+    		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
+    		i2c-protocol;
+    	};
 };
 
 &i2c1 {
@@ -309,6 +330,16 @@
 	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
 };
 
+&kcs1 {
+	status = "okay";
+	aspeed,lpc-io-reg = <0xca0>;
+};
+
+&kcs2 {
+	status = "okay";
+	aspeed,lpc-io-reg = <0xca8>;
+};
+
 &kcs3 {
 	status = "okay";
 	aspeed,lpc-io-reg = <0xca2>;
@@ -316,7 +347,7 @@
 
 &kcs4 {
     status = "okay";
-    aspeed,lpc-io-reg = <0xca4>;
+    aspeed,lpc-io-reg = <0xca6>;
 };
 
 &peci0 {
