@@ -200,7 +200,7 @@
 	multi-master;
 	ipmb@10 {
 		compatible = "ipmb-dev";
-		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
+		reg = <0x10>;
 		i2c-protocol;
 	};
 };
