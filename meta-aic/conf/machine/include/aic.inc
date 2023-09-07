@@ -8,6 +8,32 @@ MACHINE_FEATURES += "\
         obmc-phosphor-flash-mgmt \
         "
 
+OBMC_IMAGE_EXTRA_INSTALL:append = " \
+                                   phosphor-gpio-monitor-monitor \
+                                   phosphor-ipmi-blobs \
+                                   phosphor-ipmi-blobs-binarystore \
+                                   util-linux \
+                                   phosphor-hwmon \
+                                   peci-pcie \
+                                   phosphor-hostlogger \
+                                   phosphor-sel-logger \
+                                   phosphor-post-code-manager \
+                                   phosphor-host-postd \
+                                   phosphor-led-manager \
+                                   phosphor-ipmi-blobs \
+                                   phosphor-snmp \
+                                   phosphor-dbus-monitor \
+                                   entity-manager \
+                                   bmcweb \
+                                   ipmitool \
+                                   iotools \
+                                   openocd \
+                                   i2c-tools \
+                                   smbios-mdr \
+                                   biosconfig-manager \
+                                   webui-vue \
+                                  "
+
 VIRTUAL-RUNTIME_obmc-inventory-manager = "entity-manager"
 PREFERRED_PROVIDER_virtual/obmc-inventory-data = "entity-manager"
 VIRTUAL-RUNTIME_obmc-sensors-hwmon = "phosphor-hwmon"
