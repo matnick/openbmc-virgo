@@ -6,6 +6,10 @@ MACHINE_FEATURES += "\
         obmc-phosphor-chassis-mgmt \
         obmc-phosphor-fan-mgmt \
         obmc-phosphor-flash-mgmt \
+        obmc-system-mgmt \
+        obmc-fru-ipmi \
+        obmc-devtools \
+        obmc-sensors \
         "
 
 OBMC_IMAGE_EXTRA_INSTALL:append = " \
