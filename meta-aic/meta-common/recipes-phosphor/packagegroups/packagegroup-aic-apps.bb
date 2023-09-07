@@ -48,9 +48,10 @@ RDEPENDS:${PN}-system = " \
         phosphor-host-postd \
         phosphor-led-manager \
         phosphor-ipmi-blobs \
+        phosphor-snmp \
+        phosphor-dbus-monitor \
         entity-manager \
         bmcweb \
-        phosphor-snmp \
         ipmitool \
         iotools \
         openocd \
