@@ -325,7 +325,9 @@
 };
 
 &mac1 {
-	status = "okay";
+    /* NOT USED, CAUSING ERROR OF WAIT FOR NETWORK SERVICE /*
+    /* TODO: Fix service launch params, so that it works fine if one eth is not configured */
+	status = "disabled";
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
 };
